@@ -1,0 +1,18 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: transaction-system
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/roshnirajan1106/Transaction-System
+      ref: main
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerFilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: transaction-system:latest
