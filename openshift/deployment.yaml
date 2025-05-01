@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transaction-system-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: transaction-system
+  template:
+    metadata:
+      labels:
+        app: transaction-system
+    spec:
+      containers:
+        - name: transaction-system
+          image: default-route-openshift-image-registry.apps.rm3.7wse.p1.openshiftapps.com/roshnirajan8888-dev/transaction-system
+          ports:
+            - containerPort: 8080
